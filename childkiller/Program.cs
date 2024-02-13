@@ -127,6 +127,34 @@ class Program
                 int operand2 = random.Next(1, 11);
                 problem = $"{operand1} - {operand2}";
             }
+            else if (mode == 3)
+            {
+                // 一百以内的加法
+                int operand1 = random.Next(1, 101);
+                int operand2 = random.Next(1, 101);
+                problem = $"{operand1} + {operand2}";
+            }
+            else if (mode == 4)
+            {
+                // 一百以内的减法
+                int operand1 = random.Next(1, 101);
+                int operand2 = random.Next(1, 101);
+                problem = $"{operand1} - {operand2}";
+            }
+            else if (mode == 5)
+            {
+                // 一千以内的加法
+                int operand1 = random.Next(1, 1001);
+                int operand2 = random.Next(1, 1001);
+                problem = $"{operand1} + {operand2}";
+            }
+            else if (mode == 6)
+            {
+                // 一千以内的减法
+                int operand1 = random.Next(1, 1001);
+                int operand2 = random.Next(1, 1001);
+                problem = $"{operand1} - {operand2}";
+            }
             // 其他情况返回空值
 
             problems.Add(problem);
@@ -134,6 +162,7 @@ class Program
 
         return problems;
     }
+
 
 
     static void PreviewMathProblems(List<string> problems)
