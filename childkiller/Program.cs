@@ -16,6 +16,8 @@ class Program
 
         while (isRunning)
         {
+            Console.WriteLine(); // 输出空白行
+
             Console.WriteLine("欢迎使用数学题目生成器！");
             Console.WriteLine("请选择操作：");
             Console.WriteLine("0. 退出程序");
@@ -27,18 +29,21 @@ class Program
                 {
                     case 0:
                         isRunning = false;
+                        Console.WriteLine(); 
                         Console.WriteLine("程序已退出。");
                         break;
                     case 1:
                         GenerateMathProblemsMenu();
                         break;
                     default:
+                        Console.WriteLine();
                         Console.WriteLine("无效的选项，请重新输入。");
                         break;
                 }
             }
             else
             {
+                Console.WriteLine(); 
                 Console.WriteLine("请输入有效的数字选项。");
             }
         }
@@ -50,6 +55,7 @@ class Program
 
         while (true)
         {
+            Console.WriteLine(); 
             Console.WriteLine("请选择生成题目模式：");
             Console.WriteLine("1. 十以内加法");
             Console.WriteLine("2. 十以内减法");
@@ -72,25 +78,31 @@ class Program
                 {
                     if (mathProblems.Count == 0)
                     {
+                        Console.WriteLine(); 
+
                         Console.WriteLine("没有生成题目，请重新选择。");
                         continue;
                     }
-
+                    
+                    Console.WriteLine();
                     Console.WriteLine("以下是生成的题目：");
                     PreviewMathProblems(mathProblems);
 
+                    Console.WriteLine(); 
                     Console.WriteLine("将生成的题目保存到Word文档中吗？（Y/N）");
                     string saveToWord = Console.ReadLine();
 
                     if (saveToWord.ToLower() == "y")
                     {
                         SaveToWordDocument(mathProblems);
+                        Console.WriteLine(); 
                         Console.WriteLine("题目已保存到指定位置。");
                     }
 
                     break;
                 }
 
+                Console.WriteLine();
                 Console.WriteLine("请输入题目数量：");
 
                 if (int.TryParse(Console.ReadLine(), out int numberOfProblems))
@@ -100,11 +112,13 @@ class Program
                     // 只有在减法模式下询问是否允许负数
                     if (mode == 2 || mode == 4 || mode == 6)
                     {
+                        Console.WriteLine();
                         Console.WriteLine("允许负数吗？（Y/N）");
                         allowNegative = Console.ReadLine().ToLower()[0];
 
                         if (allowNegative != 'y' && allowNegative != 'n')
                         {
+                            Console.WriteLine();
                             Console.WriteLine("请输入有效的选项（Y/N）。");
                             continue;
                         }
@@ -112,6 +126,7 @@ class Program
 
                     if (mathProblems.Count + numberOfProblems > 10)
                     {
+                        Console.WriteLine();
                         Console.WriteLine("题目总数超过10题，请重新选择题目数量或模式。");
                         continue;
                     }
@@ -120,11 +135,13 @@ class Program
                 }
                 else
                 {
+                    Console.WriteLine();
                     Console.WriteLine("请输入有效的数字。");
                 }
             }
             else
             {
+                Console.WriteLine();
                 Console.WriteLine("请输入有效的数字选项。");
             }
         }
@@ -273,6 +290,7 @@ class Program
     {
         foreach (var problem in problems)
         {
+            
             Console.WriteLine(problem);
         }
     }
