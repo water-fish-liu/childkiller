@@ -95,13 +95,19 @@ class Program
 
                 if (int.TryParse(Console.ReadLine(), out int numberOfProblems))
                 {
-                    Console.WriteLine("允许负数吗？（Y/N）");
-                    char allowNegative = Console.ReadLine().ToLower()[0];
+                    char allowNegative = 'n';
 
-                    if (allowNegative != 'y' && allowNegative != 'n')
+                    // 只有在减法模式下询问是否允许负数
+                    if (mode == 2 || mode == 4 || mode == 6)
                     {
-                        Console.WriteLine("请输入有效的选项（Y/N）。");
-                        continue;
+                        Console.WriteLine("允许负数吗？（Y/N）");
+                        allowNegative = Console.ReadLine().ToLower()[0];
+
+                        if (allowNegative != 'y' && allowNegative != 'n')
+                        {
+                            Console.WriteLine("请输入有效的选项（Y/N）。");
+                            continue;
+                        }
                     }
 
                     if (mathProblems.Count + numberOfProblems > 10)
@@ -123,6 +129,7 @@ class Program
             }
         }
     }
+
 
 
 
