@@ -57,6 +57,13 @@ class Program
             Console.WriteLine("4. 一百以内减法");
             Console.WriteLine("5. 一千以内加法");
             Console.WriteLine("6. 一千以内减法");
+            Console.WriteLine("7. 一位数乘一位数");
+            Console.WriteLine("8. 一位数乘两位数");
+            Console.WriteLine("9. 两位数乘三位数");
+            Console.WriteLine("10. 三位数乘三位数");
+            Console.WriteLine("11. 两位数除一位数");
+            Console.WriteLine("12. 三位数除两位数");
+            Console.WriteLine("13. 三位数除三位数");
             Console.WriteLine("0. 完成题目选择");
 
             if (int.TryParse(Console.ReadLine(), out int mode))
@@ -118,6 +125,7 @@ class Program
     }
 
 
+
     static List<string> GenerateMathProblems(int mode, int numberOfProblems, char allowNegative)
     {
         List<string> problems = new List<string>();
@@ -129,14 +137,14 @@ class Program
 
             if (mode == 1)
             {
-                // 加法
+                // 十以内加法
                 int operand1 = random.Next(1, 11);
                 int operand2 = random.Next(1, 11);
                 problem = $"{operand1} + {operand2}";
             }
             else if (mode == 2)
             {
-                // 十以内的减法
+                // 十以内减法
                 int operand1 = random.Next(1, 11);
                 int operand2 = random.Next(1, 11);
 
@@ -150,14 +158,14 @@ class Program
             }
             else if (mode == 3)
             {
-                // 一百以内的加法
+                // 一百以内加法
                 int operand1 = random.Next(1, 101);
                 int operand2 = random.Next(1, 101);
                 problem = $"{operand1} + {operand2}";
             }
             else if (mode == 4)
             {
-                // 一百以内的减法
+                // 一百以内减法
                 int operand1 = random.Next(1, 101);
                 int operand2 = random.Next(1, 101);
 
@@ -171,14 +179,14 @@ class Program
             }
             else if (mode == 5)
             {
-                // 一千以内的加法
+                // 一千以内加法
                 int operand1 = random.Next(1, 1001);
                 int operand2 = random.Next(1, 1001);
                 problem = $"{operand1} + {operand2}";
             }
             else if (mode == 6)
             {
-                // 一千以内的减法
+                // 一千以内减法
                 int operand1 = random.Next(1, 1001);
                 int operand2 = random.Next(1, 1001);
 
@@ -190,6 +198,58 @@ class Program
 
                 problem = $"{operand1} - {operand2}";
             }
+            else if (mode == 7)
+            {
+                // 一位数乘一位数
+                int operand1 = random.Next(1, 10);
+                int operand2 = random.Next(1, 10);
+                problem = $"{operand1} * {operand2}";
+            }
+            else if (mode == 8)
+            {
+                // 一位数乘两位数
+                int operand1 = random.Next(1, 10);
+                int operand2 = random.Next(10, 100);
+                problem = $"{operand1} * {operand2}";
+            }
+            else if (mode == 9)
+            {
+                // 两位数乘三位数
+                int operand1 = random.Next(10, 100);
+                int operand2 = random.Next(100, 1000);
+                problem = $"{operand1} * {operand2}";
+            }
+            else if (mode == 10)
+            {
+                // 三位数乘三位数
+                int operand1 = random.Next(100, 1000);
+                int operand2 = random.Next(100, 1000);
+                problem = $"{operand1} * {operand2}";
+            }
+            else if (mode == 11)
+            {
+                // 两位数除一位数
+                int operand1 = random.Next(10, 100);
+                int operand2 = random.Next(1, 10);
+                int result = operand1 * operand2; // 保证结果是整数
+                problem = $"{result} / {operand2}";
+            }
+            else if (mode == 12)
+            {
+                // 三位数除两位数
+                int operand1 = random.Next(100, 1000);
+                int operand2 = random.Next(10, 100);
+                int result = operand1 * operand2; // 保证结果是整数
+                problem = $"{result} / {operand2}";
+            }
+            else if (mode == 13)
+            {
+                // 三位数除三位数
+                int operand1 = random.Next(100, 1000);
+                int operand2 = random.Next(100, 1000);
+                int result = operand1 * operand2; // 保证结果是整数
+                problem = $"{result} / {operand2}";
+            }
             // 其他情况返回空值
 
             problems.Add(problem);
@@ -197,6 +257,7 @@ class Program
 
         return problems;
     }
+
 
 
 
