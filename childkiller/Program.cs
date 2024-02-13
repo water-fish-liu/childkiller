@@ -107,21 +107,34 @@ class Program
     static List<string> GenerateMathProblems(int mode, int numberOfProblems)
     {
         List<string> problems = new List<string>();
-
         Random random = new Random();
 
         for (int i = 0; i < numberOfProblems; i++)
         {
-            int operand1 = random.Next(1, 11);
-            int operand2 = random.Next(1, 11);
+            string problem = "";
 
-            string problem = mode == 1 ? $"{operand1} + {operand2}" : $"{operand1} - {operand2}";
+            if (mode == 1)
+            {
+                // 加法
+                int operand1 = random.Next(1, 11);
+                int operand2 = random.Next(1, 11);
+                problem = $"{operand1} + {operand2}";
+            }
+            else if (mode == 2)
+            {
+                // 十以内的减法
+                int operand1 = random.Next(1, 11);
+                int operand2 = random.Next(1, 11);
+                problem = $"{operand1} - {operand2}";
+            }
+            // 其他情况返回空值
 
             problems.Add(problem);
         }
 
         return problems;
     }
+
 
     static void PreviewMathProblems(List<string> problems)
     {
