@@ -210,21 +210,21 @@ class Program
                 // 一位数乘一位数
                 int operand1 = random.Next(1, 10);
                 int operand2 = random.Next(1, 10);
-                problem = $"{operand1} * {operand2}";
+                problem = $"{operand1} × {operand2}";
             }
             else if (mode == 8)
             {
                 // 一位数乘两位数
                 int operand1 = random.Next(1, 10);
                 int operand2 = random.Next(10, 100);
-                problem = $"{operand1} * {operand2}";
+                problem = $"{operand1} × {operand2}";
             }
             else if (mode == 9)
             {
                 // 两位数乘三位数
                 int operand1 = random.Next(10, 100);
                 int operand2 = random.Next(100, 1000);
-                problem = $"{operand1} * {operand2}";
+                problem = $"{operand1} × {operand2}";
             }
             else if (mode == 10)
             {
